@@ -1464,44 +1464,11 @@
             
             <tag> 容器化 </tag>
             
-            <tag> 配置 </tag>
-            
             <tag> 系统管理 </tag>
+            
+            <tag> 配置 </tag>
             
             <tag> Docker Compose </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>【Docker】高级配置指南</title>
-      <link href="/archives/c55fa595.html"/>
-      <url>/archives/c55fa595.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Docker-高级配置指南"><a href="#Docker-高级配置指南" class="headerlink" title="Docker 高级配置指南"></a>Docker 高级配置指南</h1><h2 id="Docker-Daemon-配置"><a href="#Docker-Daemon-配置" class="headerlink" title="Docker Daemon 配置"></a>Docker Daemon 配置</h2><h3 id="daemon-json-配置文件"><a href="#daemon-json-配置文件" class="headerlink" title="daemon.json 配置文件"></a>daemon.json 配置文件</h3><p>Docker daemon 的配置文件通常位于 <code>/etc/docker/daemon.json</code>，用于配置 Docker 引擎的行为：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://mirror.ccs.tencentyun.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token property">"data-root"</span><span class="token operator">:</span> <span class="token string">"/var/lib/docker"</span><span class="token punctuation">,</span>  <span class="token property">"log-driver"</span><span class="token operator">:</span> <span class="token string">"json-file"</span><span class="token punctuation">,</span>  <span class="token property">"log-opts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"max-size"</span><span class="token operator">:</span> <span class="token string">"100m"</span><span class="token punctuation">,</span>    <span class="token property">"max-file"</span><span class="token operator">:</span> <span class="token string">"3"</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token property">"default-ulimits"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"nofile"</span><span class="token operator">:</span> <span class="token punctuation">{</span>      <span class="token property">"Name"</span><span class="token operator">:</span> <span class="token string">"nofile"</span><span class="token punctuation">,</span>      <span class="token property">"Hard"</span><span class="token operator">:</span> <span class="token number">64000</span><span class="token punctuation">,</span>      <span class="token property">"Soft"</span><span class="token operator">:</span> <span class="token number">64000</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="主要配置项说明"><a href="#主要配置项说明" class="headerlink" title="主要配置项说明"></a>主要配置项说明</h3><ol><li><strong>registry-mirrors</strong>: 配置 Docker 镜像加速器</li><li><strong>data-root</strong>: 指定 Docker 数据存储位置</li><li><strong>log-driver</strong>: 设置容器日志驱动</li><li><strong>log-opts</strong>: 配置日志相关选项</li><li><strong>default-ulimits</strong>: 设置容器的系统资源限制</li></ol><h2 id="容器运行时配置"><a href="#容器运行时配置" class="headerlink" title="容器运行时配置"></a>容器运行时配置</h2><h3 id="资源限制配置"><a href="#资源限制配置" class="headerlink" title="资源限制配置"></a>资源限制配置</h3><p>使用 <code>docker run</code> 命令时可以配置容器的资源限制：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 限制 CPU 和内存使用</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--cpus</span><span class="token operator">=</span><span class="token number">2</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--memory</span><span class="token operator">=</span>2g <span class="token punctuation">\</span>  --memory-swap<span class="token operator">=</span>4g <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="重启策略配置"><a href="#重启策略配置" class="headerlink" title="重启策略配置"></a>重启策略配置</h3><p>配置容器的自动重启策略：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置容器总是自动重启</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><h3 id="自定义网络"><a href="#自定义网络" class="headerlink" title="自定义网络"></a>自定义网络</h3><p>创建和使用自定义网络：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建自定义网络</span><span class="token function">docker</span> network create <span class="token parameter variable">--driver</span> bridge mynetwork<span class="token comment"># 将容器连接到自定义网络</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--network</span> mynetwork <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h3><p>配置容器端口映射：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 映射多个端口</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">443</span>:443 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="存储配置"><a href="#存储配置" class="headerlink" title="存储配置"></a>存储配置</h2><h3 id="数据卷配置"><a href="#数据卷配置" class="headerlink" title="数据卷配置"></a>数据卷配置</h3><p>创建和使用数据卷：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建数据卷</span><span class="token function">docker</span> volume create mydata<span class="token comment"># 使用数据卷</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> mydata:/data <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="绑定挂载"><a href="#绑定挂载" class="headerlink" title="绑定挂载"></a>绑定挂载</h3><p>将主机目录挂载到容器：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 挂载主机目录</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> /host/path:/container/path <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><h3 id="用户命名空间"><a href="#用户命名空间" class="headerlink" title="用户命名空间"></a>用户命名空间</h3><p>启用用户命名空间映射：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"userns-remap"</span><span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="安全选项"><a href="#安全选项" class="headerlink" title="安全选项"></a>安全选项</h3><p>配置容器安全选项：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 以非特权模式运行容器</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --security-opt<span class="token operator">=</span>no-new-privileges <span class="token punctuation">\</span>  --cap-drop<span class="token operator">=</span>ALL <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><h3 id="日志驱动配置"><a href="#日志驱动配置" class="headerlink" title="日志驱动配置"></a>日志驱动配置</h3><p>配置容器的日志驱动：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 syslog 日志驱动</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --log-driver<span class="token operator">=</span>syslog <span class="token punctuation">\</span>  --log-opt syslog-address<span class="token operator">=</span>udp://1.2.3.4:1111 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ol><li><strong>资源限制</strong>: 始终为生产环境的容器设置资源限制</li><li><strong>日志轮转</strong>: 配置适当的日志轮转策略避免磁盘空间耗尽</li><li><strong>网络隔离</strong>: 使用自定义网络实现容器间的网络隔离</li><li><strong>数据持久化</strong>: 使用数据卷而不是绑定挂载来持久化数据</li><li><strong>安全加固</strong>: 遵循最小权限原则配置容器</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Docker 的高级配置涉及多个方面，包括 daemon 配置、容器运行时配置、网络配置、存储配置等。通过合理配置这些选项，可以构建更安全、更高效、更可靠的容器化环境。掌握这些配置选项对于在生产环境中部署和管理 Docker 容器至关重要。</p><hr><h2 id="希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！"><a href="#希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！" class="headerlink" title="希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！"></a>希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> 容器化 </tag>
-            
-            <tag> 配置 </tag>
-            
-            <tag> 系统管理 </tag>
             
         </tags>
       
@@ -1532,9 +1499,42 @@
             
             <tag> 容器化 </tag>
             
+            <tag> 基础 </tag>
+            
             <tag> 系统管理 </tag>
             
-            <tag> 基础 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【Docker】高级配置指南</title>
+      <link href="/archives/c55fa595.html"/>
+      <url>/archives/c55fa595.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Docker-高级配置指南"><a href="#Docker-高级配置指南" class="headerlink" title="Docker 高级配置指南"></a>Docker 高级配置指南</h1><h2 id="Docker-Daemon-配置"><a href="#Docker-Daemon-配置" class="headerlink" title="Docker Daemon 配置"></a>Docker Daemon 配置</h2><h3 id="daemon-json-配置文件"><a href="#daemon-json-配置文件" class="headerlink" title="daemon.json 配置文件"></a>daemon.json 配置文件</h3><p>Docker daemon 的配置文件通常位于 <code>/etc/docker/daemon.json</code>，用于配置 Docker 引擎的行为：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://mirror.ccs.tencentyun.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token property">"data-root"</span><span class="token operator">:</span> <span class="token string">"/var/lib/docker"</span><span class="token punctuation">,</span>  <span class="token property">"log-driver"</span><span class="token operator">:</span> <span class="token string">"json-file"</span><span class="token punctuation">,</span>  <span class="token property">"log-opts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"max-size"</span><span class="token operator">:</span> <span class="token string">"100m"</span><span class="token punctuation">,</span>    <span class="token property">"max-file"</span><span class="token operator">:</span> <span class="token string">"3"</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token property">"default-ulimits"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"nofile"</span><span class="token operator">:</span> <span class="token punctuation">{</span>      <span class="token property">"Name"</span><span class="token operator">:</span> <span class="token string">"nofile"</span><span class="token punctuation">,</span>      <span class="token property">"Hard"</span><span class="token operator">:</span> <span class="token number">64000</span><span class="token punctuation">,</span>      <span class="token property">"Soft"</span><span class="token operator">:</span> <span class="token number">64000</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="主要配置项说明"><a href="#主要配置项说明" class="headerlink" title="主要配置项说明"></a>主要配置项说明</h3><ol><li><strong>registry-mirrors</strong>: 配置 Docker 镜像加速器</li><li><strong>data-root</strong>: 指定 Docker 数据存储位置</li><li><strong>log-driver</strong>: 设置容器日志驱动</li><li><strong>log-opts</strong>: 配置日志相关选项</li><li><strong>default-ulimits</strong>: 设置容器的系统资源限制</li></ol><h2 id="容器运行时配置"><a href="#容器运行时配置" class="headerlink" title="容器运行时配置"></a>容器运行时配置</h2><h3 id="资源限制配置"><a href="#资源限制配置" class="headerlink" title="资源限制配置"></a>资源限制配置</h3><p>使用 <code>docker run</code> 命令时可以配置容器的资源限制：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 限制 CPU 和内存使用</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--cpus</span><span class="token operator">=</span><span class="token number">2</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--memory</span><span class="token operator">=</span>2g <span class="token punctuation">\</span>  --memory-swap<span class="token operator">=</span>4g <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="重启策略配置"><a href="#重启策略配置" class="headerlink" title="重启策略配置"></a>重启策略配置</h3><p>配置容器的自动重启策略：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置容器总是自动重启</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><h3 id="自定义网络"><a href="#自定义网络" class="headerlink" title="自定义网络"></a>自定义网络</h3><p>创建和使用自定义网络：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建自定义网络</span><span class="token function">docker</span> network create <span class="token parameter variable">--driver</span> bridge mynetwork<span class="token comment"># 将容器连接到自定义网络</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--network</span> mynetwork <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h3><p>配置容器端口映射：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 映射多个端口</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">443</span>:443 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="存储配置"><a href="#存储配置" class="headerlink" title="存储配置"></a>存储配置</h2><h3 id="数据卷配置"><a href="#数据卷配置" class="headerlink" title="数据卷配置"></a>数据卷配置</h3><p>创建和使用数据卷：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建数据卷</span><span class="token function">docker</span> volume create mydata<span class="token comment"># 使用数据卷</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> mydata:/data <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="绑定挂载"><a href="#绑定挂载" class="headerlink" title="绑定挂载"></a>绑定挂载</h3><p>将主机目录挂载到容器：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 挂载主机目录</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> /host/path:/container/path <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><h3 id="用户命名空间"><a href="#用户命名空间" class="headerlink" title="用户命名空间"></a>用户命名空间</h3><p>启用用户命名空间映射：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"userns-remap"</span><span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="安全选项"><a href="#安全选项" class="headerlink" title="安全选项"></a>安全选项</h3><p>配置容器安全选项：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 以非特权模式运行容器</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --security-opt<span class="token operator">=</span>no-new-privileges <span class="token punctuation">\</span>  --cap-drop<span class="token operator">=</span>ALL <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><h3 id="日志驱动配置"><a href="#日志驱动配置" class="headerlink" title="日志驱动配置"></a>日志驱动配置</h3><p>配置容器的日志驱动：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 syslog 日志驱动</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --log-driver<span class="token operator">=</span>syslog <span class="token punctuation">\</span>  --log-opt syslog-address<span class="token operator">=</span>udp://1.2.3.4:1111 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ol><li><strong>资源限制</strong>: 始终为生产环境的容器设置资源限制</li><li><strong>日志轮转</strong>: 配置适当的日志轮转策略避免磁盘空间耗尽</li><li><strong>网络隔离</strong>: 使用自定义网络实现容器间的网络隔离</li><li><strong>数据持久化</strong>: 使用数据卷而不是绑定挂载来持久化数据</li><li><strong>安全加固</strong>: 遵循最小权限原则配置容器</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Docker 的高级配置涉及多个方面，包括 daemon 配置、容器运行时配置、网络配置、存储配置等。通过合理配置这些选项，可以构建更安全、更高效、更可靠的容器化环境。掌握这些配置选项对于在生产环境中部署和管理 Docker 容器至关重要。</p><hr><h2 id="希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！"><a href="#希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！" class="headerlink" title="希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！"></a>希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> 容器化 </tag>
+            
+            <tag> 系统管理 </tag>
+            
+            <tag> 配置 </tag>
             
         </tags>
       
@@ -1590,9 +1590,9 @@
       
         <tags>
             
-            <tag> 配置 </tag>
-            
             <tag> 系统管理 </tag>
+            
+            <tag> 配置 </tag>
             
             <tag> Linux </tag>
             
@@ -2197,9 +2197,9 @@
       
         <tags>
             
-            <tag> 配置 </tag>
-            
             <tag> 系统管理 </tag>
+            
+            <tag> 配置 </tag>
             
             <tag> Linux </tag>
             
@@ -2294,9 +2294,9 @@
             
             <tag> Linux </tag>
             
-            <tag> 文件系统 </tag>
-            
             <tag> 磁盘管理 </tag>
+            
+            <tag> 文件系统 </tag>
             
         </tags>
       
@@ -2321,9 +2321,9 @@
       
         <tags>
             
-            <tag> 系统管理 </tag>
-            
             <tag> 基础 </tag>
+            
+            <tag> 系统管理 </tag>
             
             <tag> Linux </tag>
             
@@ -2657,9 +2657,9 @@
             
             <tag> Java </tag>
             
-            <tag> 异常处理 </tag>
-            
             <tag> Spring Boot </tag>
+            
+            <tag> 异常处理 </tag>
             
             <tag> 配置解析 </tag>
             
@@ -3053,9 +3053,9 @@
             
             <tag> Java </tag>
             
-            <tag> 异常处理 </tag>
-            
             <tag> Spring Boot </tag>
+            
+            <tag> 异常处理 </tag>
             
             <tag> 全局处理 </tag>
             

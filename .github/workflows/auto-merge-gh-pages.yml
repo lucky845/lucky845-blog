@@ -6,14 +6,20 @@ on:
       - gh-pages
   workflow_dispatch: # 允许手动触发
 
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+
 jobs:
   create-and-merge-pr:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      checks: write
+    env:
+      TZ: Asia/Shanghai
     steps:
+      # 检出代码
+      - uses: actions/checkout@v4
+
       # 创建Pull Request
       - name: Create Pull Request
         id: create_pr

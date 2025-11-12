@@ -348,11 +348,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 数据库 </tag>
             
             <tag> 分布式系统 </tag>
-            
-            <tag> Java </tag>
             
             <tag> 并发 </tag>
             
@@ -638,37 +638,6 @@
     
     
     <entry>
-      <title>【Java】Java语法糖详解：从基础到高级特性</title>
-      <link href="/archives/8f9e713f.html"/>
-      <url>/archives/8f9e713f.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Java语法糖详解"><a href="#Java语法糖详解" class="headerlink" title="Java语法糖详解"></a>Java语法糖详解</h1><h2 id="什么是语法糖？"><a href="#什么是语法糖？" class="headerlink" title="什么是语法糖？"></a>什么是语法糖？</h2><p>语法糖（Syntactic Sugar）是指在编程语言中添加的一些语法特性，这些特性不会改变程序的功能，但可以使代码更加简洁、易读。Java作为一门成熟的编程语言，提供了多种语法糖特性，本文将详细介绍这些特性的使用方法和实现原理。</p><h2 id="基础语法糖"><a href="#基础语法糖" class="headerlink" title="基础语法糖"></a>基础语法糖</h2><h3 id="1-自动装箱与拆箱"><a href="#1-自动装箱与拆箱" class="headerlink" title="1. 自动装箱与拆箱"></a>1. 自动装箱与拆箱</h3><p>自动装箱（Autoboxing）和自动拆箱（Unboxing）是Java 5引入的特性，它允许基本数据类型和对应的包装类之间自动转换。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 自动装箱</span><span class="token class-name">Integer</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>  <span class="token comment">// 编译器自动转换为：Integer num = Integer.valueOf(100);</span><span class="token comment">// 自动拆箱</span><span class="token keyword">int</span> value <span class="token operator">=</span> num<span class="token punctuation">;</span>    <span class="token comment">// 编译器自动转换为：int value = num.intValue();</span><span class="token comment">// 在集合中的应用</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 自动装箱</span><span class="token keyword">int</span> first <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 自动拆箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="2-增强for循环"><a href="#2-增强for循环" class="headerlink" title="2. 增强for循环"></a>2. 增强for循环</h3><p>增强for循环（Enhanced for Loop）也称为foreach循环，是Java 5引入的一个语法糖，用于简化集合和数组的遍历。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 数组遍历</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 集合遍历</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> names <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> name <span class="token operator">:</span> names<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="3-字符串switch"><a href="#3-字符串switch" class="headerlink" title="3. 字符串switch"></a>3. 字符串switch</h3><p>Java 7开始支持在switch语句中使用字符串，这是一个很方便的语法糖。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> command <span class="token operator">=</span> <span class="token string">"start"</span><span class="token punctuation">;</span><span class="token keyword">switch</span> <span class="token punctuation">(</span>command<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">case</span> <span class="token string">"start"</span><span class="token operator">:</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Starting..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">break</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token string">"stop"</span><span class="token operator">:</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Stopping..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">break</span><span class="token punctuation">;</span>    <span class="token keyword">default</span><span class="token operator">:</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Unknown command"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="高级语法糖"><a href="#高级语法糖" class="headerlink" title="高级语法糖"></a>高级语法糖</h2><h3 id="1-Lambda表达式"><a href="#1-Lambda表达式" class="headerlink" title="1. Lambda表达式"></a>1. Lambda表达式</h3><p>Java 8引入的Lambda表达式是一个重要的语法糖，它简化了匿名内部类的写法。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 传统写法</span><span class="token class-name">Button</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>button<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ActionListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token annotation punctuation">@Override</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actionPerformed</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Button clicked!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// Lambda表达式</span>button<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span>e <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Button clicked!"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 方法引用</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> names <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>names<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="2-Switch表达式"><a href="#2-Switch表达式" class="headerlink" title="2. Switch表达式"></a>2. Switch表达式</h3><p>Java 14正式引入的Switch表达式提供了更简洁的switch语法。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token keyword">switch</span> <span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">case</span> <span class="token constant">MONDAY</span><span class="token punctuation">,</span> <span class="token constant">FRIDAY</span><span class="token punctuation">,</span> <span class="token constant">SUNDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"休息日"</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token constant">TUESDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"工作日"</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token constant">THURSDAY</span><span class="token punctuation">,</span> <span class="token constant">SATURDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"学习日"</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token constant">WEDNESDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"运动日"</span><span class="token punctuation">;</span>    <span class="token keyword">default</span> <span class="token operator">-&gt;</span> <span class="token string">"未知"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="3-Record类型"><a href="#3-Record类型" class="headerlink" title="3. Record类型"></a>3. Record类型</h3><p>Java 16引入的Record类型用于创建不可变的数据类。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">record</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment">// 等价于以下传统类</span><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>        <span class="token keyword">public</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token comment">// 自动生成getter、equals、hashCode和toString方法</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="语法糖的实现原理"><a href="#语法糖的实现原理" class="headerlink" title="语法糖的实现原理"></a>语法糖的实现原理</h2><h3 id="反编译分析"><a href="#反编译分析" class="headerlink" title="反编译分析"></a>反编译分析</h3><p>让我们通过反编译来看看这些语法糖是如何实现的：</p><ol><li>自动装箱/拆箱</li></ol><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 源代码</span><span class="token class-name">Integer</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token comment">// 反编译后</span><span class="token class-name">Integer</span> num <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="2"><li>增强for循环</li></ol><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 源代码</span><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 反编译后</span><span class="token class-name">Iterator</span> var2 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>var2<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span>var2<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="3"><li>Lambda表达式</li></ol><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 源代码</span><span class="token class-name">Runnable</span> r <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 反编译后（简化版）</span><span class="token class-name">Runnable</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h2><ol><li><p><strong>合理使用</strong>：语法糖可以提高代码可读性，但过度使用可能导致代码难以理解。</p></li><li><p><strong>了解原理</strong>：理解语法糖的实现原理有助于写出更高效的代码。</p></li><li><p><strong>版本兼容</strong>：使用新版本的语法糖特性时，需要注意目标环境的JDK版本支持情况。</p></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Java语法糖的设计目的是提高开发效率和代码可读性。通过本文的介绍，我们了解了从基础到高级的各种语法糖特性，以及它们的实现原理。合理使用这些特性，可以帮助我们写出更优雅的代码。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>Java Language Specification</li><li>JDK源码文档</li><li>《Effective Java》第三版</li><li>Java虚拟机规范</li></ul><hr><p>本文介绍了Java中常用的语法糖特性，从基础的自动装箱拆箱到高级的Lambda表达式和Record类型。通过理解这些特性的使用方法和实现原理，我们可以更好地运用它们来提高代码质量。如果您有任何问题或建议，欢迎在评论区讨论！</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-          <category> 技术笔记 </category>
-          
-          <category> Java基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 语法糖 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【Java】Java SPI 机制详解</title>
       <link href="/archives/8f9e712f.html"/>
       <url>/archives/8f9e712f.html</url>
@@ -694,6 +663,37 @@
             <tag> SPI </tag>
             
             <tag> 设计模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【Java】Java语法糖详解：从基础到高级特性</title>
+      <link href="/archives/8f9e713f.html"/>
+      <url>/archives/8f9e713f.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Java语法糖详解"><a href="#Java语法糖详解" class="headerlink" title="Java语法糖详解"></a>Java语法糖详解</h1><h2 id="什么是语法糖？"><a href="#什么是语法糖？" class="headerlink" title="什么是语法糖？"></a>什么是语法糖？</h2><p>语法糖（Syntactic Sugar）是指在编程语言中添加的一些语法特性，这些特性不会改变程序的功能，但可以使代码更加简洁、易读。Java作为一门成熟的编程语言，提供了多种语法糖特性，本文将详细介绍这些特性的使用方法和实现原理。</p><h2 id="基础语法糖"><a href="#基础语法糖" class="headerlink" title="基础语法糖"></a>基础语法糖</h2><h3 id="1-自动装箱与拆箱"><a href="#1-自动装箱与拆箱" class="headerlink" title="1. 自动装箱与拆箱"></a>1. 自动装箱与拆箱</h3><p>自动装箱（Autoboxing）和自动拆箱（Unboxing）是Java 5引入的特性，它允许基本数据类型和对应的包装类之间自动转换。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 自动装箱</span><span class="token class-name">Integer</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>  <span class="token comment">// 编译器自动转换为：Integer num = Integer.valueOf(100);</span><span class="token comment">// 自动拆箱</span><span class="token keyword">int</span> value <span class="token operator">=</span> num<span class="token punctuation">;</span>    <span class="token comment">// 编译器自动转换为：int value = num.intValue();</span><span class="token comment">// 在集合中的应用</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 自动装箱</span><span class="token keyword">int</span> first <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 自动拆箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="2-增强for循环"><a href="#2-增强for循环" class="headerlink" title="2. 增强for循环"></a>2. 增强for循环</h3><p>增强for循环（Enhanced for Loop）也称为foreach循环，是Java 5引入的一个语法糖，用于简化集合和数组的遍历。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 数组遍历</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num <span class="token operator">:</span> numbers<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 集合遍历</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> names <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> name <span class="token operator">:</span> names<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="3-字符串switch"><a href="#3-字符串switch" class="headerlink" title="3. 字符串switch"></a>3. 字符串switch</h3><p>Java 7开始支持在switch语句中使用字符串，这是一个很方便的语法糖。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> command <span class="token operator">=</span> <span class="token string">"start"</span><span class="token punctuation">;</span><span class="token keyword">switch</span> <span class="token punctuation">(</span>command<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">case</span> <span class="token string">"start"</span><span class="token operator">:</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Starting..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">break</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token string">"stop"</span><span class="token operator">:</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Stopping..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">break</span><span class="token punctuation">;</span>    <span class="token keyword">default</span><span class="token operator">:</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Unknown command"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="高级语法糖"><a href="#高级语法糖" class="headerlink" title="高级语法糖"></a>高级语法糖</h2><h3 id="1-Lambda表达式"><a href="#1-Lambda表达式" class="headerlink" title="1. Lambda表达式"></a>1. Lambda表达式</h3><p>Java 8引入的Lambda表达式是一个重要的语法糖，它简化了匿名内部类的写法。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 传统写法</span><span class="token class-name">Button</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>button<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ActionListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token annotation punctuation">@Override</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actionPerformed</span><span class="token punctuation">(</span><span class="token class-name">ActionEvent</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Button clicked!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// Lambda表达式</span>button<span class="token punctuation">.</span><span class="token function">addActionListener</span><span class="token punctuation">(</span>e <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Button clicked!"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 方法引用</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> names <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">,</span> <span class="token string">"Bob"</span><span class="token punctuation">,</span> <span class="token string">"Charlie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>names<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="2-Switch表达式"><a href="#2-Switch表达式" class="headerlink" title="2. Switch表达式"></a>2. Switch表达式</h3><p>Java 14正式引入的Switch表达式提供了更简洁的switch语法。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> result <span class="token operator">=</span> <span class="token keyword">switch</span> <span class="token punctuation">(</span>day<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">case</span> <span class="token constant">MONDAY</span><span class="token punctuation">,</span> <span class="token constant">FRIDAY</span><span class="token punctuation">,</span> <span class="token constant">SUNDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"休息日"</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token constant">TUESDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"工作日"</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token constant">THURSDAY</span><span class="token punctuation">,</span> <span class="token constant">SATURDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"学习日"</span><span class="token punctuation">;</span>    <span class="token keyword">case</span> <span class="token constant">WEDNESDAY</span> <span class="token operator">-&gt;</span> <span class="token string">"运动日"</span><span class="token punctuation">;</span>    <span class="token keyword">default</span> <span class="token operator">-&gt;</span> <span class="token string">"未知"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="3-Record类型"><a href="#3-Record类型" class="headerlink" title="3. Record类型"></a>3. Record类型</h3><p>Java 16引入的Record类型用于创建不可变的数据类。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">record</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token comment">// 等价于以下传统类</span><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>        <span class="token keyword">public</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>        <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>    <span class="token punctuation">}</span>        <span class="token comment">// 自动生成getter、equals、hashCode和toString方法</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="语法糖的实现原理"><a href="#语法糖的实现原理" class="headerlink" title="语法糖的实现原理"></a>语法糖的实现原理</h2><h3 id="反编译分析"><a href="#反编译分析" class="headerlink" title="反编译分析"></a>反编译分析</h3><p>让我们通过反编译来看看这些语法糖是如何实现的：</p><ol><li>自动装箱/拆箱</li></ol><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 源代码</span><span class="token class-name">Integer</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token comment">// 反编译后</span><span class="token class-name">Integer</span> num <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="2"><li>增强for循环</li></ol><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 源代码</span><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> str <span class="token operator">:</span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 反编译后</span><span class="token class-name">Iterator</span> var2 <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span>var2<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token class-name">String</span> str <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span>var2<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol start="3"><li>Lambda表达式</li></ol><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 源代码</span><span class="token class-name">Runnable</span> r <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 反编译后（简化版）</span><span class="token class-name">Runnable</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h2><ol><li><p><strong>合理使用</strong>：语法糖可以提高代码可读性，但过度使用可能导致代码难以理解。</p></li><li><p><strong>了解原理</strong>：理解语法糖的实现原理有助于写出更高效的代码。</p></li><li><p><strong>版本兼容</strong>：使用新版本的语法糖特性时，需要注意目标环境的JDK版本支持情况。</p></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Java语法糖的设计目的是提高开发效率和代码可读性。通过本文的介绍，我们了解了从基础到高级的各种语法糖特性，以及它们的实现原理。合理使用这些特性，可以帮助我们写出更优雅的代码。</p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>Java Language Specification</li><li>JDK源码文档</li><li>《Effective Java》第三版</li><li>Java虚拟机规范</li></ul><hr><p>本文介绍了Java中常用的语法糖特性，从基础的自动装箱拆箱到高级的Lambda表达式和Record类型。通过理解这些特性的使用方法和实现原理，我们可以更好地运用它们来提高代码质量。如果您有任何问题或建议，欢迎在评论区讨论！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> 技术笔记 </category>
+          
+          <category> Java基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 语法糖 </tag>
             
         </tags>
       
@@ -821,9 +821,9 @@
       
         <tags>
             
-            <tag> 性能优化 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 性能优化 </tag>
             
             <tag> 序列化 </tag>
             
@@ -885,11 +885,11 @@
       
         <tags>
             
-            <tag> 性能优化 </tag>
-            
             <tag> Java </tag>
             
             <tag> 并发编程 </tag>
+            
+            <tag> 性能优化 </tag>
             
         </tags>
       
@@ -949,9 +949,9 @@
       
         <tags>
             
-            <tag> 性能优化 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 性能优化 </tag>
             
             <tag> 线程池 </tag>
             
@@ -1011,9 +1011,9 @@
       
         <tags>
             
-            <tag> Nacos </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Nacos </tag>
             
             <tag> Sentinel </tag>
             
@@ -1312,9 +1312,9 @@
             
             <tag> 容器化 </tag>
             
-            <tag> 消息队列 </tag>
-            
             <tag> RocketMQ </tag>
+            
+            <tag> 消息队列 </tag>
             
             <tag> 分布式系统 </tag>
             
@@ -1417,9 +1417,9 @@
             
             <tag> 容器化 </tag>
             
-            <tag> RabbitMQ </tag>
-            
             <tag> 消息队列 </tag>
+            
+            <tag> RabbitMQ </tag>
             
             <tag> 延时队列 </tag>
             
@@ -1520,40 +1520,7 @@
             
             <tag> Docker </tag>
             
-            <tag> 容器化 </tag>
-            
-            <tag> 配置 </tag>
-            
-            <tag> 系统管理 </tag>
-            
             <tag> Docker Compose </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>【Docker】高级配置指南</title>
-      <link href="/archives/c55fa595.html"/>
-      <url>/archives/c55fa595.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Docker-高级配置指南"><a href="#Docker-高级配置指南" class="headerlink" title="Docker 高级配置指南"></a>Docker 高级配置指南</h1><h2 id="Docker-Daemon-配置"><a href="#Docker-Daemon-配置" class="headerlink" title="Docker Daemon 配置"></a>Docker Daemon 配置</h2><h3 id="daemon-json-配置文件"><a href="#daemon-json-配置文件" class="headerlink" title="daemon.json 配置文件"></a>daemon.json 配置文件</h3><p>Docker daemon 的配置文件通常位于 <code>/etc/docker/daemon.json</code>，用于配置 Docker 引擎的行为：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://mirror.ccs.tencentyun.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token property">"data-root"</span><span class="token operator">:</span> <span class="token string">"/var/lib/docker"</span><span class="token punctuation">,</span>  <span class="token property">"log-driver"</span><span class="token operator">:</span> <span class="token string">"json-file"</span><span class="token punctuation">,</span>  <span class="token property">"log-opts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"max-size"</span><span class="token operator">:</span> <span class="token string">"100m"</span><span class="token punctuation">,</span>    <span class="token property">"max-file"</span><span class="token operator">:</span> <span class="token string">"3"</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token property">"default-ulimits"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"nofile"</span><span class="token operator">:</span> <span class="token punctuation">{</span>      <span class="token property">"Name"</span><span class="token operator">:</span> <span class="token string">"nofile"</span><span class="token punctuation">,</span>      <span class="token property">"Hard"</span><span class="token operator">:</span> <span class="token number">64000</span><span class="token punctuation">,</span>      <span class="token property">"Soft"</span><span class="token operator">:</span> <span class="token number">64000</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="主要配置项说明"><a href="#主要配置项说明" class="headerlink" title="主要配置项说明"></a>主要配置项说明</h3><ol><li><strong>registry-mirrors</strong>: 配置 Docker 镜像加速器</li><li><strong>data-root</strong>: 指定 Docker 数据存储位置</li><li><strong>log-driver</strong>: 设置容器日志驱动</li><li><strong>log-opts</strong>: 配置日志相关选项</li><li><strong>default-ulimits</strong>: 设置容器的系统资源限制</li></ol><h2 id="容器运行时配置"><a href="#容器运行时配置" class="headerlink" title="容器运行时配置"></a>容器运行时配置</h2><h3 id="资源限制配置"><a href="#资源限制配置" class="headerlink" title="资源限制配置"></a>资源限制配置</h3><p>使用 <code>docker run</code> 命令时可以配置容器的资源限制：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 限制 CPU 和内存使用</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--cpus</span><span class="token operator">=</span><span class="token number">2</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--memory</span><span class="token operator">=</span>2g <span class="token punctuation">\</span>  --memory-swap<span class="token operator">=</span>4g <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="重启策略配置"><a href="#重启策略配置" class="headerlink" title="重启策略配置"></a>重启策略配置</h3><p>配置容器的自动重启策略：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置容器总是自动重启</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><h3 id="自定义网络"><a href="#自定义网络" class="headerlink" title="自定义网络"></a>自定义网络</h3><p>创建和使用自定义网络：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建自定义网络</span><span class="token function">docker</span> network create <span class="token parameter variable">--driver</span> bridge mynetwork<span class="token comment"># 将容器连接到自定义网络</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--network</span> mynetwork <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h3><p>配置容器端口映射：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 映射多个端口</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">443</span>:443 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="存储配置"><a href="#存储配置" class="headerlink" title="存储配置"></a>存储配置</h2><h3 id="数据卷配置"><a href="#数据卷配置" class="headerlink" title="数据卷配置"></a>数据卷配置</h3><p>创建和使用数据卷：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建数据卷</span><span class="token function">docker</span> volume create mydata<span class="token comment"># 使用数据卷</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> mydata:/data <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="绑定挂载"><a href="#绑定挂载" class="headerlink" title="绑定挂载"></a>绑定挂载</h3><p>将主机目录挂载到容器：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 挂载主机目录</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> /host/path:/container/path <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><h3 id="用户命名空间"><a href="#用户命名空间" class="headerlink" title="用户命名空间"></a>用户命名空间</h3><p>启用用户命名空间映射：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"userns-remap"</span><span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="安全选项"><a href="#安全选项" class="headerlink" title="安全选项"></a>安全选项</h3><p>配置容器安全选项：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 以非特权模式运行容器</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --security-opt<span class="token operator">=</span>no-new-privileges <span class="token punctuation">\</span>  --cap-drop<span class="token operator">=</span>ALL <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><h3 id="日志驱动配置"><a href="#日志驱动配置" class="headerlink" title="日志驱动配置"></a>日志驱动配置</h3><p>配置容器的日志驱动：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 syslog 日志驱动</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --log-driver<span class="token operator">=</span>syslog <span class="token punctuation">\</span>  --log-opt syslog-address<span class="token operator">=</span>udp://1.2.3.4:1111 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ol><li><strong>资源限制</strong>: 始终为生产环境的容器设置资源限制</li><li><strong>日志轮转</strong>: 配置适当的日志轮转策略避免磁盘空间耗尽</li><li><strong>网络隔离</strong>: 使用自定义网络实现容器间的网络隔离</li><li><strong>数据持久化</strong>: 使用数据卷而不是绑定挂载来持久化数据</li><li><strong>安全加固</strong>: 遵循最小权限原则配置容器</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Docker 的高级配置涉及多个方面，包括 daemon 配置、容器运行时配置、网络配置、存储配置等。通过合理配置这些选项，可以构建更安全、更高效、更可靠的容器化环境。掌握这些配置选项对于在生产环境中部署和管理 Docker 容器至关重要。</p><hr><h2 id="希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！"><a href="#希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！" class="headerlink" title="希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！"></a>希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
             
             <tag> 容器化 </tag>
             
@@ -1593,6 +1560,39 @@
             <tag> 系统管理 </tag>
             
             <tag> 基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【Docker】高级配置指南</title>
+      <link href="/archives/c55fa595.html"/>
+      <url>/archives/c55fa595.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Docker-高级配置指南"><a href="#Docker-高级配置指南" class="headerlink" title="Docker 高级配置指南"></a>Docker 高级配置指南</h1><h2 id="Docker-Daemon-配置"><a href="#Docker-Daemon-配置" class="headerlink" title="Docker Daemon 配置"></a>Docker Daemon 配置</h2><h3 id="daemon-json-配置文件"><a href="#daemon-json-配置文件" class="headerlink" title="daemon.json 配置文件"></a>daemon.json 配置文件</h3><p>Docker daemon 的配置文件通常位于 <code>/etc/docker/daemon.json</code>，用于配置 Docker 引擎的行为：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"registry-mirrors"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://mirror.ccs.tencentyun.com"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token property">"data-root"</span><span class="token operator">:</span> <span class="token string">"/var/lib/docker"</span><span class="token punctuation">,</span>  <span class="token property">"log-driver"</span><span class="token operator">:</span> <span class="token string">"json-file"</span><span class="token punctuation">,</span>  <span class="token property">"log-opts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"max-size"</span><span class="token operator">:</span> <span class="token string">"100m"</span><span class="token punctuation">,</span>    <span class="token property">"max-file"</span><span class="token operator">:</span> <span class="token string">"3"</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token property">"default-ulimits"</span><span class="token operator">:</span> <span class="token punctuation">{</span>    <span class="token property">"nofile"</span><span class="token operator">:</span> <span class="token punctuation">{</span>      <span class="token property">"Name"</span><span class="token operator">:</span> <span class="token string">"nofile"</span><span class="token punctuation">,</span>      <span class="token property">"Hard"</span><span class="token operator">:</span> <span class="token number">64000</span><span class="token punctuation">,</span>      <span class="token property">"Soft"</span><span class="token operator">:</span> <span class="token number">64000</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="主要配置项说明"><a href="#主要配置项说明" class="headerlink" title="主要配置项说明"></a>主要配置项说明</h3><ol><li><strong>registry-mirrors</strong>: 配置 Docker 镜像加速器</li><li><strong>data-root</strong>: 指定 Docker 数据存储位置</li><li><strong>log-driver</strong>: 设置容器日志驱动</li><li><strong>log-opts</strong>: 配置日志相关选项</li><li><strong>default-ulimits</strong>: 设置容器的系统资源限制</li></ol><h2 id="容器运行时配置"><a href="#容器运行时配置" class="headerlink" title="容器运行时配置"></a>容器运行时配置</h2><h3 id="资源限制配置"><a href="#资源限制配置" class="headerlink" title="资源限制配置"></a>资源限制配置</h3><p>使用 <code>docker run</code> 命令时可以配置容器的资源限制：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 限制 CPU 和内存使用</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--cpus</span><span class="token operator">=</span><span class="token number">2</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--memory</span><span class="token operator">=</span>2g <span class="token punctuation">\</span>  --memory-swap<span class="token operator">=</span>4g <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="重启策略配置"><a href="#重启策略配置" class="headerlink" title="重启策略配置"></a>重启策略配置</h3><p>配置容器的自动重启策略：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置容器总是自动重启</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><h3 id="自定义网络"><a href="#自定义网络" class="headerlink" title="自定义网络"></a>自定义网络</h3><p>创建和使用自定义网络：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建自定义网络</span><span class="token function">docker</span> network create <span class="token parameter variable">--driver</span> bridge mynetwork<span class="token comment"># 将容器连接到自定义网络</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">--network</span> mynetwork <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h3><p>配置容器端口映射：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 映射多个端口</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token punctuation">\</span>  <span class="token parameter variable">-p</span> <span class="token number">443</span>:443 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="存储配置"><a href="#存储配置" class="headerlink" title="存储配置"></a>存储配置</h2><h3 id="数据卷配置"><a href="#数据卷配置" class="headerlink" title="数据卷配置"></a>数据卷配置</h3><p>创建和使用数据卷：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建数据卷</span><span class="token function">docker</span> volume create mydata<span class="token comment"># 使用数据卷</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> mydata:/data <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="绑定挂载"><a href="#绑定挂载" class="headerlink" title="绑定挂载"></a>绑定挂载</h3><p>将主机目录挂载到容器：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 挂载主机目录</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  <span class="token parameter variable">-v</span> /host/path:/container/path <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="安全配置"><a href="#安全配置" class="headerlink" title="安全配置"></a>安全配置</h2><h3 id="用户命名空间"><a href="#用户命名空间" class="headerlink" title="用户命名空间"></a>用户命名空间</h3><p>启用用户命名空间映射：</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>  <span class="token property">"userns-remap"</span><span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="安全选项"><a href="#安全选项" class="headerlink" title="安全选项"></a>安全选项</h3><p>配置容器安全选项：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 以非特权模式运行容器</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --security-opt<span class="token operator">=</span>no-new-privileges <span class="token punctuation">\</span>  --cap-drop<span class="token operator">=</span>ALL <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><h3 id="日志驱动配置"><a href="#日志驱动配置" class="headerlink" title="日志驱动配置"></a>日志驱动配置</h3><p>配置容器的日志驱动：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 使用 syslog 日志驱动</span><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>  --log-driver<span class="token operator">=</span>syslog <span class="token punctuation">\</span>  --log-opt syslog-address<span class="token operator">=</span>udp://1.2.3.4:1111 <span class="token punctuation">\</span>  <span class="token parameter variable">--name</span> myapp <span class="token punctuation">\</span>  nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><ol><li><strong>资源限制</strong>: 始终为生产环境的容器设置资源限制</li><li><strong>日志轮转</strong>: 配置适当的日志轮转策略避免磁盘空间耗尽</li><li><strong>网络隔离</strong>: 使用自定义网络实现容器间的网络隔离</li><li><strong>数据持久化</strong>: 使用数据卷而不是绑定挂载来持久化数据</li><li><strong>安全加固</strong>: 遵循最小权限原则配置容器</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Docker 的高级配置涉及多个方面，包括 daemon 配置、容器运行时配置、网络配置、存储配置等。通过合理配置这些选项，可以构建更安全、更高效、更可靠的容器化环境。掌握这些配置选项对于在生产环境中部署和管理 Docker 容器至关重要。</p><hr><h2 id="希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！"><a href="#希望这篇文章能帮助您更好地理解-Docker-的高级配置。如果您有任何问题，欢迎在评论区讨论！" class="headerlink" title="希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！"></a>希望这篇文章能帮助您更好地理解 Docker 的高级配置。如果您有任何问题，欢迎在评论区讨论！</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> 容器化 </tag>
+            
+            <tag> 配置 </tag>
+            
+            <tag> 系统管理 </tag>
             
         </tags>
       
@@ -1809,9 +1809,9 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Redis </tag>
             
             <tag> 客户端 </tag>
             
@@ -1842,9 +1842,9 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Redis </tag>
             
             <tag> Jedis </tag>
             
@@ -2133,11 +2133,11 @@
             
             <tag> Linux </tag>
             
+            <tag> 脚本编程 </tag>
+            
             <tag> 网络安全 </tag>
             
             <tag> IP 过滤 </tag>
-            
-            <tag> 脚本编程 </tag>
             
         </tags>
       
@@ -2228,9 +2228,9 @@
             
             <tag> Linux </tag>
             
-            <tag> 脚本编程 </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> 脚本编程 </tag>
             
         </tags>
       
@@ -2352,9 +2352,9 @@
             
             <tag> Linux </tag>
             
-            <tag> 文件系统 </tag>
-            
             <tag> 磁盘管理 </tag>
+            
+            <tag> 文件系统 </tag>
             
         </tags>
       
@@ -2511,15 +2511,15 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Redis </tag>
             
             <tag> Spring Boot </tag>
             
-            <tag> 分布式锁 </tag>
-            
             <tag> AOP </tag>
+            
+            <tag> 分布式锁 </tag>
             
         </tags>
       
@@ -2546,9 +2546,9 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Redis </tag>
             
             <tag> Spring Boot </tag>
             
@@ -2612,9 +2612,9 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Redis </tag>
             
             <tag> Spring Boot </tag>
             
@@ -2715,11 +2715,11 @@
             
             <tag> Java </tag>
             
+            <tag> 异常处理 </tag>
+            
             <tag> Spring Boot </tag>
             
             <tag> 配置解析 </tag>
-            
-            <tag> 异常处理 </tag>
             
         </tags>
       
@@ -3047,9 +3047,9 @@
             
             <tag> Spring </tag>
             
-            <tag> AOP </tag>
-            
             <tag> 事务管理 </tag>
+            
+            <tag> AOP </tag>
             
         </tags>
       
@@ -3078,11 +3078,11 @@
             
             <tag> Java </tag>
             
-            <tag> 异常处理 </tag>
-            
             <tag> Spring Cloud </tag>
             
             <tag> Gateway </tag>
+            
+            <tag> 异常处理 </tag>
             
         </tags>
       
@@ -3111,9 +3111,9 @@
             
             <tag> Java </tag>
             
-            <tag> Spring Boot </tag>
-            
             <tag> 异常处理 </tag>
+            
+            <tag> Spring Boot </tag>
             
             <tag> 全局处理 </tag>
             
@@ -3274,11 +3274,11 @@
       
         <tags>
             
+            <tag> Java </tag>
+            
             <tag> 数据库 </tag>
             
             <tag> Redis </tag>
-            
-            <tag> Java </tag>
             
             <tag> Spring </tag>
             
@@ -3309,9 +3309,9 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据库 </tag>
             
             <tag> Spring </tag>
             
@@ -3346,9 +3346,9 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据库 </tag>
             
             <tag> Spring </tag>
             
@@ -3383,9 +3383,9 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据库 </tag>
             
             <tag> Spring </tag>
             
@@ -3418,9 +3418,9 @@
       
         <tags>
             
-            <tag> 数据库 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 数据库 </tag>
             
             <tag> Spring </tag>
             

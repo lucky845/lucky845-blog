@@ -38,9 +38,9 @@
     
     <category term="Java" scheme="https://blog.lucky845.top/tags/Java/"/>
     
-    <category term="JVM" scheme="https://blog.lucky845.top/tags/JVM/"/>
-    
     <category term="内存管理" scheme="https://blog.lucky845.top/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="JVM" scheme="https://blog.lucky845.top/tags/JVM/"/>
     
   </entry>
   

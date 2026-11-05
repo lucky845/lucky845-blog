@@ -1,8 +1,8 @@
 {
-  "posts": 143,
+  "posts": 146,
   "categories": 23,
-  "tags": 195,
-  "archivePages": 12,
+  "tags": 209,
+  "archivePages": 13,
   "stack": [
     {
       "name": "Java",
@@ -45,5 +45,5 @@
       "count": 13
     }
   ],
-  "generatedAt": "2026-11-03T03:56:44.885Z"
+  "generatedAt": "2026-11-05T05:00:12.760Z"
 }

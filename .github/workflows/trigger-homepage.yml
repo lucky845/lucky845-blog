@@ -1,0 +1,19 @@
+name: Trigger Homepage Rebuild
+
+# 本仓库是 hexo deploy 的目标（静态产物），master 每次更新都代表"文章已上线"。
+# 因此在 lh 侧触发主页重建，可覆盖"只 deploy 未提交源码"的场景。
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: # 允许手动触发，便于验证
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger lucky845.github.io rebuild
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.HOMEPAGE_DISPATCH_TOKEN }}
+          repository: lucky845/lucky845.github.io
+          event-type: blog-updated

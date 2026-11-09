@@ -35,15 +35,15 @@
     
     <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
     
+    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
+    
+    <category term="工程实践" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
+    
     <category term="成本优化" scheme="https://blog.lucky845.top/tags/%E6%88%90%E6%9C%AC%E4%BC%98%E5%8C%96/"/>
     
     <category term="Token" scheme="https://blog.lucky845.top/tags/Token/"/>
     
     <category term="Prompt Caching" scheme="https://blog.lucky845.top/tags/Prompt-Caching/"/>
-    
-    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
-    
-    <category term="工程实践" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     
   </entry>
   
@@ -66,9 +66,9 @@
     
     <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
     
-    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
-    
     <category term="架构设计" scheme="https://blog.lucky845.top/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
     
     <category term="多 Agent" scheme="https://blog.lucky845.top/tags/%E5%A4%9A-Agent/"/>
     
@@ -97,13 +97,13 @@
     
     <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
     
-    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
-    
-    <category term="工程实践" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
-    
     <category term="Function Calling" scheme="https://blog.lucky845.top/tags/Function-Calling/"/>
     
     <category term="工具设计" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E5%85%B7%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
+    
+    <category term="工程实践" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     
     <category term="MCP" scheme="https://blog.lucky845.top/tags/MCP/"/>
     
@@ -283,9 +283,9 @@
     
     <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
     
-    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
-    
     <category term="RAG" scheme="https://blog.lucky845.top/tags/RAG/"/>
+    
+    <category term="LLM" scheme="https://blog.lucky845.top/tags/LLM/"/>
     
     <category term="Context Engineering" scheme="https://blog.lucky845.top/tags/Context-Engineering/"/>
     
@@ -315,11 +315,11 @@
     <category term="AI" scheme="https://blog.lucky845.top/categories/AI/"/>
     
     
+    <category term="Hexo" scheme="https://blog.lucky845.top/tags/Hexo/"/>
+    
     <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
     
     <category term="工程化" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    
-    <category term="Hexo" scheme="https://blog.lucky845.top/tags/Hexo/"/>
     
     <category term="自动化" scheme="https://blog.lucky845.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
@@ -347,13 +347,13 @@
     <category term="AI" scheme="https://blog.lucky845.top/categories/AI/"/>
     
     
+    <category term="性能优化" scheme="https://blog.lucky845.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
     <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
     
     <category term="Flutter" scheme="https://blog.lucky845.top/tags/Flutter/"/>
     
     <category term="Web" scheme="https://blog.lucky845.top/tags/Web/"/>
-    
-    <category term="性能优化" scheme="https://blog.lucky845.top/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
     <category term="Service Worker" scheme="https://blog.lucky845.top/tags/Service-Worker/"/>
     
@@ -379,9 +379,9 @@
     <category term="AI" scheme="https://blog.lucky845.top/categories/AI/"/>
     
     
-    <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
-    
     <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
+    
+    <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
     
     <category term="工程化" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
     
@@ -473,6 +473,8 @@
     <category term="AI" scheme="https://blog.lucky845.top/categories/AI/"/>
     
     
+    <category term="Docker" scheme="https://blog.lucky845.top/tags/Docker/"/>
+    
     <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
     
     <category term="QQ机器人" scheme="https://blog.lucky845.top/tags/QQ%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
@@ -480,8 +482,6 @@
     <category term="AstrBot" scheme="https://blog.lucky845.top/tags/AstrBot/"/>
     
     <category term="NapCat" scheme="https://blog.lucky845.top/tags/NapCat/"/>
-    
-    <category term="Docker" scheme="https://blog.lucky845.top/tags/Docker/"/>
     
   </entry>
   
@@ -507,9 +507,9 @@
     
     <category term="Java" scheme="https://blog.lucky845.top/tags/Java/"/>
     
-    <category term="内存管理" scheme="https://blog.lucky845.top/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
-    
     <category term="JVM" scheme="https://blog.lucky845.top/tags/JVM/"/>
+    
+    <category term="内存管理" scheme="https://blog.lucky845.top/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   

@@ -315,15 +315,15 @@
     <category term="AI" scheme="https://blog.lucky845.top/categories/AI/"/>
     
     
-    <category term="Hexo" scheme="https://blog.lucky845.top/tags/Hexo/"/>
-    
     <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
+    
+    <category term="工程化" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+    <category term="Hexo" scheme="https://blog.lucky845.top/tags/Hexo/"/>
     
     <category term="自动化" scheme="https://blog.lucky845.top/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
     <category term="GitHub Actions" scheme="https://blog.lucky845.top/tags/GitHub-Actions/"/>
-    
-    <category term="工程化" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
     
   </entry>
   
@@ -379,9 +379,9 @@
     <category term="AI" scheme="https://blog.lucky845.top/categories/AI/"/>
     
     
-    <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
-    
     <category term="AI" scheme="https://blog.lucky845.top/tags/AI/"/>
+    
+    <category term="AI Agent" scheme="https://blog.lucky845.top/tags/AI-Agent/"/>
     
     <category term="工程化" scheme="https://blog.lucky845.top/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
     
@@ -507,9 +507,9 @@
     
     <category term="Java" scheme="https://blog.lucky845.top/tags/Java/"/>
     
-    <category term="JVM" scheme="https://blog.lucky845.top/tags/JVM/"/>
-    
     <category term="内存管理" scheme="https://blog.lucky845.top/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="JVM" scheme="https://blog.lucky845.top/tags/JVM/"/>
     
   </entry>
   

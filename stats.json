@@ -1,7 +1,7 @@
 {
-  "posts": 149,
+  "posts": 152,
   "categories": 23,
-  "tags": 217,
+  "tags": 229,
   "archivePages": 13,
   "stack": [
     {
@@ -45,5 +45,5 @@
       "count": 13
     }
   ],
-  "generatedAt": "2026-11-09T07:18:37.001Z"
+  "generatedAt": "2026-11-10T07:48:29.017Z"
 }
